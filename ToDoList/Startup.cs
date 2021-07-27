@@ -12,7 +12,7 @@ namespace ToDoList
   {
     public Startup(IWebHostEnvironment env)
     {
-    var builder = new ConfigurationBuilder()
+    IConfigurationBuilder builder = new ConfigurationBuilder()
         .SetBasePath(env.ContentRootPath)
         .AddJsonFile("appsettings.json"); //this line replaces .AddEnvironmentVariables();
     Configuration = builder.Build();
@@ -43,7 +43,7 @@ namespace ToDoList
       
       app.Run(async (context) =>
       {
-        await context.Response.WriteAsync("Hello World!");
+        await context.Response.WriteAsync("Error: request failed- check your GET POST");
       });
     }
   }

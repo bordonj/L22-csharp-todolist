@@ -20,17 +20,24 @@ namespace ToDoList.Controllers
       return View(model);
     }
 
-    public ActionResult Create()
+    public ActionResult Create() // GET action to display our form to user
     {
         return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Item item)
+    public ActionResult Create(Item item) // POST action to manage form submission
     {
-        _db.Items.Add(item);
+        _db.Items.Add(item); 
         _db.SaveChanges();
-        return RedirectToAction("Index");
+        return RedirectToAction("Index"); //afterwards redirect to index
+    }
+    public ActionResult Details(int id)
+    {
+      Item thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
+      // ()
+
+      return View(thisItem);
     }
   }
 }

@@ -1,14 +1,16 @@
 @{
   Layout = "_Layout";
 }
-
-@model ToDoList.Models.Item
+<!--  -->
+@model ToDoList.Models.Item 
+@* line above is called model directive tells our view what type of data will be passed into the view from the controller route *@
 
 <h4>Add a new task</h4>
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Description)
     @Html.TextBoxFor(model => model.Description)
+    
     <input type="submit" value="Add new task" />
 }
 <p>@Html.ActionLink("Show all items", "Index")</p>
